@@ -1,0 +1,74 @@
+<dom-module id="app-catalog">
+    <template>
+        <style>
+            :host {
+                position: absolute;
+                display: block;
+                height: 100%;
+                width: 100%;
+                text-align: center;
+                color: rgba(0,0,0, .54);
+            }
+            .container {
+                position: relative;
+                display: inline-block;
+                margin: 0 auto;
+                padding: 20px;
+                text-align: center;
+            }           
+            app-card {
+
+            }
+            paper-icon-button {
+                color: rgba(0,0,0,0.54);
+            }
+            /* Media queries */
+            
+            
+        </style>   
+        <div class="container">
+            <template is="dom-repeat" items="[[data]]">
+                <app-card
+                    title="[[item.title]]"
+                    image="[[item.image]]"
+                    description="[[item.description]]"
+                    counterFavorite="32">
+                </app-card>
+                <!--
+                <paper-card heading="[[item.title]]" image="[[item.image]]" on-click="select">
+                    <div class="card-content">
+                        [[item.description]]
+                    </div>
+                    <div class="card-actions">
+                        <paper-icon-button icon="favorite"></paper-icon-button>32
+                    </div>
+                </paper-card>
+                -->
+            </template>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is: 'app-catalog',
+            properties: {
+                data: { 
+                 type: Array,
+                 value: function(){
+                     return [
+                         {title: "Stick Verde", description: "Algodão", price: "10.90", image: "http://donutsgourmet.com.br/wp-content/uploads/2015/12/1.jpg"},
+                         {title: "Jelly Belly Vermelho", description: "Algodão, bonito", price: "12.90", image: "http://www.americansoda.co.uk/media/wysiwyg/jelly-bellyjelly-beans.jpg"},
+                         {title: "Kit Kat Choco", description: "Algodão, Choco vermelho", price: "16.90", image: "http://i.dailymail.co.uk/i/pix/2015/09/17/02/2C660AD300000578-3237772-image-a-86_1442452510842.jpg"}                         
+                     ]
+                 }
+                }
+            },
+            // Behaviors
+            select: function(evt) {
+                console.log(evt.target);
+            },
+            socialAction: function(){
+                window.location.href = "https://www.facebook.com/sharer/sharer.php?u=http://colorhunt.co/c/14832?ref=facebook";
+            }
+        });
+    </script>
+</dom-module>

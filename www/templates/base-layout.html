@@ -1,0 +1,91 @@
+    <dom-module id="base-layout">
+    <template>
+        <style>
+            :host {
+                font-family: Roboto;    
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                color: rgba(0,0,0,.86);
+            }
+            paper-toolbar {
+                --paper-toolbar-background: white;    
+                --paper-toolbar-title: color: rgba(0,0,0,0.86);
+            }
+            .content {
+                background: #E8F1F5;
+            }
+            .title {
+                width: 100%;
+                text-align: center;
+            }
+            .title img {
+                position: absolute;
+                margin: auto;
+                left: 0;
+                right: 0;
+                top: 10px;
+            }
+            paper-icon-button {
+                --iron-icon-fill-color: rgba(0,0,0,.38);
+            }
+            .menu.desktop {
+                    display: none;
+            }   
+            .menu.desktop paper-button {
+                text-transform: capitalize;
+            }
+            .menu.desktop paper-button.selected{
+                
+            }
+            .menu.desktop paper-button.btn-sticks {
+                /*border: 1px solid rgba(0, 136, 191, 0.36); */
+            }
+            @media (min-width: 600px) {
+                .menu.desktop {
+                    display: block;
+                    @apply(--layout-horizontal);
+                    color: rgba(0,0,0,0.38);
+                }
+                .menu.mobile {
+                    display: none;
+                }
+            }
+        </style>
+        <paper-drawer-panel right-drawer force-narrow>
+            <div main>
+                <paper-header-panel>
+                    <!-- toolbar for all pages that uses multi-pages layout -->
+                    <paper-toolbar>
+                        <span class="menu desktop">
+                            <paper-button class="btn-sticks" raised="1" on-tap="selectStickers">Extensor</paper-button>
+                            <paper-button class="btn-mochila" on-tap="selectStickers">Mochila</paper-button>
+                        </span>
+                        <paper-icon-button class="menu mobile" icon="menu" on-tap="menuAction"></paper-icon-button>
+                        <div class="title">
+                            <img src="../assets/images/color-logo-small.png" width="60px">
+                            <content select=".title"></content>
+                        </div>
+                        <paper-icon-button icon="more-vert" on-tap="moreAction"></paper-icon-button>
+                    </paper-toolbar>
+
+                    <!-- visual separation of the html -->
+                    <div class="content">
+                        <content select=".main-content"></content>
+                    </div>
+                </paper-header-panel>            
+            </div>
+            <!-- cart -->
+            <div drawer>
+            
+            </div>
+       </paper-drawer-panel>
+    </template>
+    <script>
+        Polymer({
+            is: 'base-layout'
+        });
+    </script>
+</dom-module>

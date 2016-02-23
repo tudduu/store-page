@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<head>
+    <title>tudduu - criado com amor nas batidas do coração - made in Brazil</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="assets/vendor/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <!-- imports. This can be remove to customelement -->
+    <link rel="import" href="assets/vendor/polymer/polymer.html">
+    
+    <!-- styles -->
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <link rel="import" href="assets/vendor/paper-styles/paper-styles.html">
+    <link rel="import" href="assets/vendor/paper-styles/color.html">
+    <link rel="import" href="assets/vendor/iron-flex-layout/iron-flex-layout.html">
+    
+    <!-- components polymer-project-->
+    <link rel="import" href="assets/vendor/paper-scroll-header-panel/paper-scroll-header-panel.html">
+    <link rel="import" href="assets/vendor/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="assets/vendor/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="assets/vendor/iron-icon/iron-icon.html">
+    <link rel="import" href="assets/vendor/iron-icons/iron-icons.html">
+    <link rel="import" href="assets/vendor/neon-animation/neon-animated-pages.html">
+    <link rel="import" href="assets/vendor/neon-animation/neon-animations.html">
+    <!-- components third -->
+    <link rel="import" href="assets/vendor/polymer-color-picker/polymer-color-picker.html">
+    <!-- own components -->
+    
+    <!-- develop tools for develop time -->
+    <link rel="import" href="sample-content.html">
+    
+    <style is="custom-style">
+        body {
+            font-family: Roboto;
+            font-weight: 300;
+        }
+        a {
+            outline: 0;
+            text-decoration: none;
+            color: rgba(255,255,255,0.54);
+        }
+        a:hover, a:active, a:focus {
+            text-decoration: none;
+            outline: 0;
+            color: rgba(255,255,255,0.84);
+            border-bottom: 1px white dotted;
+        }
+        neon-animated-pages {
+            position: fixed;
+        }
+        paper-scroll-header-panel {
+          position: inherit;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-color: #EEE;
+        }
+        /* AB tests */
+        /* setup AB 1 */
+        .bgAB_1 {
+          /* background for toolbar when it is at its full size */
+          --paper-scroll-header-panel-full-header: {
+            background-color: #039BE5;
+          };            
+         /* background for toolbar when it is condensed */
+          --paper-scroll-header-panel-condensed-header: {
+            background-color: #0288D1;
+          };             
+        }
+        .bgAB_1_bottom {
+            background-color: #0288D1;
+        }        
+        .hlbgAB_1 {
+            background-color: #951556;
+        }
+        .hlcolorAB_1 {
+            color: #951556;
+        }
+        
+        paper-toolbar {
+          background-color: transparent;
+          /* background-color: #BD5CA6; */
+          height: 356px;
+        }
+        paper-toolbar .title {
+          margin: 0 8px;
+        }
+        paper-scroll-header-panel .content {
+          padding: 8px;
+        }
+        paper-icon-button {
+          color: white;
+        }
+        .spacer {
+          @apply(--layout-flex);
+        }   
+        .backToHome {
+            display: none;
+        }   
+        .toolbar-base {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 64px;
+          width: 100%;
+          text-align: center;
+        }
+        .toolbar-base neon-animated-pages {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+        .toolbar-base neon-animated-pages div.goals {
+            position: absolute;
+            vertical-align: middle;
+            height: 100%;
+            width: 100%;
+            @apply(--layout-vertical);
+        }
+        .toolbar-base neon-animated-pages div.goals h3 {
+            margin: auto;
+            font-weight: 300;
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            opacity: 0.95;
+        }
+        .middle {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          text-align: center;            
+        }
+        .middle div.middle-content {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            @apply(--layout-vertical);
+            vertical-align: middle;
+            padding-top: 40px;
+        }
+        .middle div img {
+            margin: auto;
+        }
+        .middle div .message {
+            margin: auto;
+            font-size: 1.1em;
+            font-weight: 100;
+            margin-top: 20px;
+        }
+        .middle div .message strong{
+            font-style: italic;
+        }
+        .deep-message {
+            font-size: 16px;
+            font-weight: 100;
+            color: rgba(255,255,255, 0.54);
+        }
+        .pageLogo {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        .pageLogo img {
+            margin-top: 2px;
+            float: left;
+        }
+    
+    </style>
+    
+    
+</head>
+<body fullbleed unresolved>
+    <!-- header -->
+    <neon-animated-pages selected="0">
+        <paper-scroll-header-panel class="bgAB_1" condenses keep-condensed-header header-height="500" condensed-header-height="64">
+        <paper-toolbar>
+          <paper-icon-button class="backToHome" icon="arrow-back"></paper-icon-button>
+          <div class="spacer title">
+              
+          </div>
+          <paper-icon-button icon="search"></paper-icon-button>
+          <paper-icon-button icon="more-vert"></paper-icon-button>
+          <div class="middle">
+              <div class="middle-content">
+                <img class="logo" src="assets/images/logo_eye.png" alt="tudduu">
+                <span class="message">
+                    Explore o maior site de extensores de <strong>body baby</strong> do Brasil.</span>  
+                <div class="middle-search">
+                    <span class="deep-message">Pesquise pela cor</span>
+                    <polymer-color-picker column-count=5 color-list='["#65a5f2", "#83be54", "#f0d551", "#e5943c", "#a96ddb"]'></polymer-color-picker>
+                    <span class="deep-message"><a href="#">ou explore todos os produtos.</a></span>
+                  </div>
+              </div>
+          </div>            
+          <div class="bottom toolbar-base bgAB_1_bottom">
+                <neon-animated-pages id="bottomPages" selected="0" entry-animation="slide-from-right-animation" exit-animation="slide-left-animation">
+                    <div class="goals">
+                        <h3 class="">Mais de <strong>1.000</strong> extensores em <strong>um ano</strong></h3>
+                    </div>
+                    <span class="pageLogo">
+                        <img src="assets/images/logo_64.png">
+                    </span>
+                </neon-animated-pages>
+          </div>
+        </paper-toolbar>
+        <div class="content">
+          <sample-content size="100"></sample-content>
+        </div>
+        <!-- page contributors 
+        https://api.github.com/repos/PolymerElements/paper-scroll-header-panel/contributors
+        -->
+    </paper-scroll-header-panel>  
+        <div> cuidado </div>
+    </neon-animated-pages>
+    <!-- content -->
+    
+    <!-- footer -->
+    <script>
+        var listColorsAB = [
+            {id: 1, primay: "#DD4747", secondary: "#ED6D54", highlight: "E4F091"}, 
+            {id: 2,primary: "#B7569A", secondary: "#883C82", highlight: "#E4F091"},
+            {id: 3,primary: "#6B62CE", secondary: "#372E96", highlight: "#2F99AD"},
+            {id: 4,primary: "#F9ED69", secondary: "#F08A5D", highlight: "#B83B5E"},
+            {id: 5,primary: "#393E46", secondary: "#222831", highlight: "#00ADB5"},
+            {id: 6,primary: "#56BFB5", secondary: "#38817A", highlight: "#F5F093"},
+        ]
+        var scrollPanel = document.querySelector('paper-scroll-header-panel');
+        var bottomPages = document.querySelector('#bottomPages');
+        scrollPanel.addEventListener('paper-header-transform', function(e){
+            endHeight = e.detail.height - e.detail.y;
+            if (endHeight == 64) {
+                // select page 1
+                bottomPages.selected = 1;
+            } else {
+                // select page 0
+                bottomPages.selected = 0;
+            }
+        });
+        /* functions */
+        function selectColor() {
+            nid = Math.floor((Math.random() * 6) + 1);  
+            return listColorsAB[nid]
+        };   
+        /* hint from: http://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb */
+        function hexToRgb(hex) {
+            var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? "rgba(" + parseInt(result[1], 16) + "," + parseInt(result[2], 16) + "," + parseInt(result[3], 16) + "," + "1" + ")" : null;
+        }        
+        
+    </script>
+</body>

@@ -1,0 +1,72 @@
+<dom-module id="app-card">
+<template>
+    <style>
+        :host {
+            display: inline-block;
+        }
+        :host.activated {
+            width: 100%;
+        }
+        :host.activated paper-card {
+            float: left;
+        }
+        #expand {
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 0;
+        }
+        #expand.activated {
+            width: 100%;
+            background: red;
+        }
+        paper-card {
+            margin: 30px;
+            background-color: white;
+            display: inline-block;
+            position: relative;
+            text-align: left;
+            --paper-card-header-color: white;
+            --paper-card-header-image: {
+                height: 180px;
+            }
+            --paper-card-header-image-text: {
+                background: rgba(0,0,0,0.12);
+            }
+            --paper-card: {
+                width: 280px; 
+            }            
+        }
+    </style>
+    <paper-card heading="[[title]]" image="[[image]]" on-click="select">
+        <div class="card-content">
+            [[description]]
+        </div>
+        <div class="card-actions">
+            <paper-icon-button icon="favorite"></paper-icon-button>[[counterFavorite]]
+        </div>
+    </paper-card>
+    <div id="expand" class="more">
+        
+    </div>    
+</template>
+<script>
+    Polymer({
+       is:  'app-card',
+       properties: {
+        title: String,
+        image: String,
+        description: String,
+        counterFavorite: String,
+        expandedStatus: {
+            type: Boolean,
+            value: false
+        }
+       },
+       select: function() {
+          this.expandedStatus = !this.expandedStatus;
+          this.toggleClass('activated', !this.expandedStatus);
+       }
+    });
+</script>
+</dom-module>
