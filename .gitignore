@@ -1,2 +1,8 @@
+
+# Project
 node_modules/
 www/elements/vendor/
+sketchs/
+
+# OS Enviroment
+.DS_Store

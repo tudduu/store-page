@@ -17,7 +17,11 @@
                 text-align: center;
             }           
             app-card {
-
+                -webkit-transform: translate(0, 0);
+    -webkit-transition: -webkit-transform 500ms ease-out;
+    transform: translate(0, 0);
+    transition: transform 500ms ease-out;
+    will-change: transform;
             }
             paper-icon-button {
                 color: rgba(0,0,0,0.54);
@@ -32,18 +36,9 @@
                     title="[[item.title]]"
                     image="[[item.image]]"
                     description="[[item.description]]"
-                    counterFavorite="32">
+                    counterFavorite="32"
+                    slug="[[item.slug]]">
                 </app-card>
-                <!--
-                <paper-card heading="[[item.title]]" image="[[item.image]]" on-click="select">
-                    <div class="card-content">
-                        [[item.description]]
-                    </div>
-                    <div class="card-actions">
-                        <paper-icon-button icon="favorite"></paper-icon-button>32
-                    </div>
-                </paper-card>
-                -->
             </template>
         </div>
     </template>
@@ -55,9 +50,10 @@
                  type: Array,
                  value: function(){
                      return [
-                         {title: "Stick Verde", description: "Algodão", price: "10.90", image: "http://donutsgourmet.com.br/wp-content/uploads/2015/12/1.jpg"},
-                         {title: "Jelly Belly Vermelho", description: "Algodão, bonito", price: "12.90", image: "http://www.americansoda.co.uk/media/wysiwyg/jelly-bellyjelly-beans.jpg"},
-                         {title: "Kit Kat Choco", description: "Algodão, Choco vermelho", price: "16.90", image: "http://i.dailymail.co.uk/i/pix/2015/09/17/02/2C660AD300000578-3237772-image-a-86_1442452510842.jpg"}                         
+                         {title: "Stick Verde", description: "Algodão", price: "10.90", image: "http://donutsgourmet.com.br/wp-content/uploads/2015/12/1.jpg",
+                         slug:"jelly-bean"},
+                         {title: "Jelly Belly Vermelho", description: "Algodão, bonito", price: "12.90", image: "http://www.americansoda.co.uk/media/wysiwyg/jelly-bellyjelly-beans.jpg", slug: "lollipop-version"},
+                         {title: "Kit Kat Choco", description: "Algodão, Choco vermelho", price: "16.90", image: "http://i.dailymail.co.uk/i/pix/2015/09/17/02/2C660AD300000578-3237772-image-a-86_1442452510842.jpg", slug:"kitkat-nestle"}                         
                      ]
                  }
                 }

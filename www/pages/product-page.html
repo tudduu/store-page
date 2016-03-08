@@ -1,0 +1,84 @@
+<dom-module id="product-page">
+    <template>
+        <style>
+            :host {
+                width: 100%;
+                text-align: center;
+            }
+            paper-card {
+                @apply(--layout-vertical);
+                text-align: left;
+                margin: 30px auto;
+                width: 80%;
+                min-height: 600px;
+            }
+            .details-content {
+                @apply(--layout-flex);
+                float: left;
+            }
+            .details-image {
+                width: 100%;
+                height: 300px;
+                background: url('http://donutsgourmet.com.br/wp-content/uploads/2015/12/1.jpg'); 
+                background-size: cover;
+            }
+            .details-header {
+                @apply(--paper-font-headline);
+            }
+            .details-description {
+                color: rgba(0,0,0,.54);
+                margin: 10px 0;
+            }
+            paper-button {
+                background: #E53935;
+                color: white;
+                font-weight: 500;
+                --paper-button-ink-color: #FF1744;
+                @apply(--shadow-elevation-8dp);
+            }
+            
+            @media (min-width: 640px) {
+                paper-card {
+                    @apply(--layout-horizontal);
+                    text-align: left;
+                    margin: 30px auto;
+                    width: 80%;
+                    min-height: 600px;
+                }  
+                .details-image {
+                    width: 40%;
+                    height: 300px;
+                    margin-right: 5%;  
+                }
+            }
+        </style>
+        <base-layout>
+            <div class="title"></div>
+            <div class="main-content">
+                <paper-card>
+                    <div class="details-image"></div>
+                    <div class="details-content">
+                        <div class="card-content">
+                            <div class="details-header">
+                                Meu produto muito doido!
+                            </div>
+                            <div class="details-description">
+                                <ol><li>Simles</li><li>Cheiroso</li><li>99% anjo</li></ol>
+                            </div>
+                            <paper-button>Add to cart</paper-button>
+                        </div>
+                    </div>
+                    
+                </paper-card>
+            </div>
+        </base-layout>
+    </template>
+    <script>
+        Polymer({
+            is: 'product-page',
+            properties: {
+                slug: String
+            }
+        });
+    </script>
+</dom-module>
